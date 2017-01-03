@@ -1,0 +1,20 @@
+default: &default
+  adapter: 'sqlite3'
+  database: 'iddd'
+  host: '127.0.0.1'
+  username: 'root'
+  password:
+  timeout: 5000
+
+production:
+  <<: *default
+  pool: <%= ENV['DL_DATABASE_POOL']%>
+
+development:
+  <<: *default
+  pool: 5
+
+
+test:
+  <<: *default
+  pool: 5
